@@ -1,0 +1,76 @@
+package controllers;
+
+import java.util.Date;
+import java.util.List;
+
+import models.ArquivoImportacao;
+import models.ArquivoLog;
+import play.data.validation.Valid;
+import play.i18n.Messages;
+import play.libs.MimeTypes;
+
+public class ArquivoLogs extends ProtectedController {
+    public static void index() {
+        List<ArquivoLogs> entities = models.ArquivoImportacao.all().fetch();
+        render(entities);
+    }
+
+    public static void create(ArquivoLog entity) {
+        render(entity);
+    }
+
+    public static void show(java.lang.Long id) {
+    	ArquivoLog entity = ArquivoLog.findById(id);
+        render(entity);
+    }
+
+    public static void edit(java.lang.Long id) {
+    	ArquivoLog entity = ArquivoLog.findById(id);
+        render(entity);
+    }
+
+    public static void delete(java.lang.Long id) {
+    	ArquivoLog entity = ArquivoLog.findById(id);
+        ArquivoImportacao arquivo = models.ArquivoImportacao.findById(entity.id);
+        arquivo.delete();
+        entity.delete();
+        index();
+    }
+    
+    public static void save(@Valid ArquivoLog entity) {
+        if (validation.hasErrors()) {
+            flash.error(Messages.get("scaffold.validation"));
+            render("@create", entity);
+        }
+        
+        ArquivoImportacao arquivo = new ArquivoImportacao();
+        arquivo.conteudo = entity.arquivo;
+        Date data = new Date();
+        arquivo.nome = "log_"+data.getDate()+"_"+data.getMonth()+"_"+data.getYear();
+        arquivo.mimeType = MimeTypes.getContentType(entity.arquivo.getFile().getName());
+        
+        arquivo.save();
+        
+        entity.save();
+        flash.success(Messages.get("scaffold.created", "ArquivoLog"));
+        index();
+    }
+
+    public static void update(@Valid ArquivoLog entity) {
+        if (validation.hasErrors()) {
+            flash.error(Messages.get("scaffold.validation"));
+            render("@edit", entity);
+        }
+        
+        	ArquivoImportacao arquivo = models.ArquivoImportacao.findById(entity.id);
+        	arquivo.conteudo = entity.arquivo;
+            arquivo.nome = "log_"+new Date().getDate();
+            arquivo.mimeType = MimeTypes.getContentType(entity.arquivo.getFile().getName());	
+            arquivo.save();
+            entity = entity.merge();
+             
+        entity.save();
+        flash.success(Messages.get("scaffold.updated", "ArquivoLog"));
+        index();
+    }
+}

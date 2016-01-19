@@ -1,0 +1,60 @@
+package controllers;
+
+import java.util.List;
+
+import models.Apartamento;
+import play.data.validation.Valid;
+import play.i18n.Messages;
+import play.mvc.Controller;
+import play.mvc.With;
+
+@With(Secure.class)
+public class Apartamentos extends ProtectedController {
+    public static void index() {
+        List<Apartamento> entities = models.Apartamento.all().fetch();
+        render(entities);
+    }
+
+    public static void create(Apartamento entity) {
+        render(entity);
+    }
+
+    public static void show(java.lang.Long id) {
+        Apartamento entity = Apartamento.findById(id);
+        render(entity);
+    }
+
+    public static void edit(java.lang.Long id) {
+        Apartamento entity = Apartamento.findById(id);
+        render(entity);
+    }
+
+    public static void delete(java.lang.Long id) {
+        Apartamento entity = Apartamento.findById(id);
+        entity.delete();
+        index();
+    }
+    
+    public static void save(@Valid Apartamento entity) {
+        if (validation.hasErrors()) {
+            flash.error(Messages.get("scaffold.validation"));
+            render("@create", entity);
+        }
+        entity.save();
+        flash.success(Messages.get("scaffold.created", "Apartamento"));
+        index();
+    }
+
+    public static void update(@Valid Apartamento entity) {
+        if (validation.hasErrors()) {
+            flash.error(Messages.get("scaffold.validation"));
+            render("@edit", entity);
+        }
+        
+              entity = entity.merge();
+        
+        entity.save();
+        flash.success(Messages.get("scaffold.updated", "Apartamento"));
+        index();
+    }
+}

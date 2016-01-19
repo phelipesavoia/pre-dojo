@@ -1,0 +1,71 @@
+<!-- ====================== -->
+
+<div class="grid-3-12">
+	<label>Nome <em class="formee-req">*</em>
+	</label>
+</div>
+<div class="grid-9-12">
+	<input type="text" name="entity.nome" value="${entity?.nome}" />
+	<span class="error">${errors.forKey('entity.nome')}</span>
+</div>
+<div class="clear"></div>
+<hr />
+
+<!-- ====================== -->
+
+<!-- ====================== -->
+
+<div class="grid-3-12">
+	<label>Controles <em class="formee-req">*</em>
+	</label>
+</div>
+<div class="grid-9-12">
+  		<table border="1" width="100%">
+  			<tr>
+  				<td rowspan="2">M&oacute;dulo</td>
+  				<td rowspan="2">Controle</td>
+  				<td colspan="5">A&ccedil;&otilde;es</td>
+  			</tr>
+  			<tr>
+  				<td>Listar</td>
+  				<td>Exibir</td>
+  				<td>Criar</td>
+  				<td>Editar</td>
+  				<td>Excluir</td>
+  			</tr>
+  			 %{int x = 0}%
+  			 #{list items:entity.controles, as:'controleAcao'}
+	  			<tr>
+	  				<td>
+	  					<input type="hidden" name="controleAcao_${x}" value="${controleAcao.id}"/>
+	  					${controleAcao.controle.modulo.nome}
+	  					<input type="hidden" name="modulo_${x}" value="${controleAcao.controle.modulo}"/>	  					
+	  				</td>
+	  				<td>
+	  					${controleAcao.controle.nome}
+	  					<input type="hidden" name="controle_${x}" value="${controleAcao.controle}" />
+	  				</td>
+	  				<td><input type="checkbox" name="listar_${x}" ${controleAcao?.listar ? 'checked' : ''}/></td>
+	  				<td><input type="checkbox" name="exibir_${x}" ${controleAcao?.exibir ? 'checked' : ''}/></td>
+	  				<td><input type="checkbox" name="criar_${x}" ${controleAcao?.criar ? 'checked' : ''}/></td>
+	  				<td><input type="checkbox" name="editar_${x}" ${controleAcao?.editar ? 'checked' : ''} /></td>
+	  				<td><input type="checkbox" name="excluir_${x}" ${controleAcao?.excluir ? 'checked' : ''} /></td>
+	  			</tr>
+	  		%{x++}%	
+        	#{/list}
+          </table>
+  <span class="error">${errors.forKey('entity.controles')}</span>
+</div>
+<div class="clear"></div>
+<hr />
+
+<!-- ====================== -->
+
+ <div class="row">
+  <div class="label"></div>
+  <div class="field">
+      <input type="hidden" name="entity.id" value="${entity?.id}"/>
+  </div>
+  <span class="error">${errors.forKey('entity.id')}</span>
+</div>
+

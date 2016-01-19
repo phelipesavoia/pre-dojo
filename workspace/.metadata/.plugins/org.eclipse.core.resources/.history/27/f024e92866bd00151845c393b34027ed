@@ -1,0 +1,28 @@
+package models;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import play.data.validation.Required;
+
+@Entity
+@Table(name="action")
+public class Action {
+
+	@Required
+	public Date data;
+	
+	@Required
+	public String action;
+	
+	@Required 
+	public String userAction;
+	
+	@Required
+	public String userReceptedAction;
+	
+	@Required
+	public String gun;
+}

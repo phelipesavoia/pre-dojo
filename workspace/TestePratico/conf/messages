@@ -1,0 +1,123 @@
+# You can specialize this file for each language.
+# For example, for French create a messages.fr file
+#
+# Campos Entidade Usuario
+entity.nome = Nome
+entity.login = Login
+entity.senha = Senha
+entity.perfil = Perfil
+# Fim Campos Usuario
+
+# Campos Entidade Categoria
+entity.sigla = Sigla
+entity.categoria = Categoria
+entity.quantidadeParcelas = Quantidade de parcelas
+# Fim Campos Categoria
+
+# Campos Entidade Carteira
+entity.descricao = Descrição
+entity.tipoContribuicao = Tipo de contribuição
+entity.numeroBanco = Número do banco
+entity.nomeBanco = Nome do banco
+entity.numeroAgencia = Número da agência
+entity.dvAgencia = Dv agencia
+entity.nomeAgencia = Nome da agência
+entity.nuemroConta = Número da conta
+entity.dvConta = Dv conta
+entity.documento = Documento
+entity.moeda = Moeda
+entity.carteira = Carteira
+entity.aceite = Aceite
+entity.instrucao = Instrução
+# fim campos carteira
+
+# Campos entidade apartamento
+entity.apartamento = Apartamento
+entity.capacidade = Capacidade
+entity.evento = Evento
+# fim campos apartamento
+
+# campos entidade ConvencaoColetiva
+entity.ano = Ano
+entity.categoria = Categoria
+entity.nome = Nome
+entity.arquivo = Arquivo
+# fim campos convecaocoletiva
+
+# Campos entidade situacao
+entity.situacao = Situação
+entity.modulo = Modulo
+# fim campos situação
+
+# Campos entidade Grupo
+entity.grupo = Grupo
+# fim campos Grupo
+
+# Campos entidade Escritorio
+entity.email = Email
+entity.razaoSocial = Razão social
+entity.cnpj = Cnpj
+entity.telefone = Telefone
+entity.tipoPessoa = Tipo de pessoa
+# fim campos EScritorio
+
+# Campos entidade Parametro
+entity.salario = Salário
+entity.percentualSalario = Percentual salário
+entity.quantidadeSocios = Quantidade de socios
+entity.percentualMultaSindical1 = Percentual multa sindical 1
+enitty.valorMultaSindical2 = Valor multa sindical 2
+entity.percentualJuros = Percentual juros
+entity.percentualMultaNegocial = Percentual multa negocial
+entity.percentualJurosNegocial = Percentual juros negocial
+entity.cedente = Cedente
+entity.retornoItau = Retorno itaú;
+entity.retornoCEF = Retorno CEF
+entity.retornoSantander = Retorno santander
+entity.tarifaCEF = Tarifa CEF
+entity.codigoEntidade = Código entidade
+entity.endereco = Endereço
+# fim campos Parametro 
+
+# Campos Entidade negocial
+entity.parcela = Parcela
+entity.dataPagamento = Data do pagamento
+entity.dataCredito = Data de crédito
+entity.valorOriginal = Valor original
+# fim campos negocial
+
+# Campos entidade sindical
+entity.protocolo = Protocolo
+entity.valorCredito = Valor de crédito
+# fim campos sindical
+
+# Campos entidade sitcontrib
+entity.empresaPrincipal = Empresa principal
+entity.baseTerritorial = Base territorial
+entity.telefoneRh = Telefone
+entity.emailRh = Email
+entity.envioBoleto = Envio de boleto
+entity.status = Status
+entity.motivo = Motivo
+entity.observacao = Observação
+# Fim campos sitcontrib
+
+entity.dataLancamento = Data lançamento
+entity.dataProgramada = Data programada
+entity.anoReferencia = Ano referência
+entity.vencimento = Vencimento
+entity.historico = Histórico
+entity.qtdPoltronas = Quantidade de poltronas
+entity.tipoOnibus = Tipo de veículo
+entity.equipe = Equipe
+cep.validation=
+numero_banco.validation=Formato inválido! O número do banco deve conter 3 números. Ex: 001
+
+scaffold.created=%s criado(a) com sucesso!
+scaffold.updated=%s atualizado(a) com sucesso!
+
+validation.minSize = %1$s deve ter o minimo de %2$d caracteres
+validation.min = opção selecionada deve ser no minimo %2$d
+validation.manSize = %1$s deve ter o maximo de %2$d caracteres
+validation.required = %s é obrigatorio
+validation.ano = O formato ano deve ser 'yyyy'. Exemplo: 2010

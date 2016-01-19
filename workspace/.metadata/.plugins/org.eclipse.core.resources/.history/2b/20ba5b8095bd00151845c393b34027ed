@@ -1,0 +1,8 @@
+package controllers;
+
+import play.mvc.Controller;
+
+@With(Secure.class)
+public abstract class SecureController extends Controller {
+	
+}

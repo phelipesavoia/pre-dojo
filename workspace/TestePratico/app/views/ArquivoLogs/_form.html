@@ -1,0 +1,30 @@
+<!-- ====================== -->
+
+<div class="grid-3-12">
+	<label>Arquivo <em class="formee-req">*</em>
+	</label>
+</div>
+<div class="grid-9-12">
+      <input type="hidden" name="entity.data" value="${entity?.data}" id="data"/>
+	  <input type="file" name="entity.arquivo" id="arquivo"/>
+      <input type="hidden" name="entity.nome" value="${entity?.nome}" id="nome"/>
+      %{ if(entity?.id) { }%
+      <a href="@{ArquivoDownload.download(entity.id)}">
+            ${models.ArquivoImportacao.findById(entity.id).nome}
+      </a>
+      %{ } }%
+	<span class="error">${errors.forKey('entity.arquivo')}</span>
+</div>
+<div class="clear"></div>
+<hr />
+
+<!-- ====================== -->
+
+ <div class="row">
+  <div class="label"></div>
+  <div class="field">
+      <input type="hidden" name="entity.id" value="${entity?.id}"/>
+  </div>
+  <span class="error">${errors.forKey('entity.id')}</span>
+</div>
+

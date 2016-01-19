@@ -1,0 +1,11 @@
+package to;
+
+import java.io.Serializable;
+
+public class RoundTO implements Serializable{
+
+	public long identifier;
+	public String dataIni;
+	public String dataFim;
+	public String status;
+}

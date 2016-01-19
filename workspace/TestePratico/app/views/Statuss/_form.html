@@ -1,0 +1,21 @@
+<!-- ====================== -->
+
+<div class="grid-3-12">
+	<label>Nome <em class="formee-req">*</em>
+	</label>
+</div>
+<div class="grid-9-12">
+	<input type="text" name="entity.nome" value="${entity?.nome}" />
+	<span class="error">${errors.forKey('entity.nome')}</span>
+</div>
+<div class="clear"></div>
+<hr />
+
+<!-- ====================== -->
+ <div class="row">
+  <div class="label"></div>
+  <div class="field">
+      <input type="hidden" name="entity.id" value="${entity?.id}"/>
+  </div>
+  <span class="error">${errors.forKey('entity.id')}</span>
+</div>

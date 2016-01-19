@@ -1,0 +1,76 @@
+package controllers;
+
+import java.util.List;
+
+import models.ArquivoConvencaoColetiva;
+import models.ConvencaoColetiva;
+import play.data.validation.Valid;
+import play.i18n.Messages;
+import play.libs.MimeTypes;
+import play.mvc.With;
+
+@With(Secure.class)
+public class ArquivoLogs extends ProtectedController {
+    public static void index() {
+        List<ConvencaoColetiva> entities = models.ConvencaoColetiva.all().fetch();
+        render(entities);
+    }
+
+    public static void create(ConvencaoColetiva entity) {
+        render(entity);
+    }
+
+    public static void show(java.lang.Long id) {
+        ConvencaoColetiva entity = ConvencaoColetiva.findById(id);
+        render(entity);
+    }
+
+    public static void edit(java.lang.Long id) {
+        ConvencaoColetiva entity = ConvencaoColetiva.findById(id);
+        render(entity);
+    }
+
+    public static void delete(java.lang.Long id) {
+        ConvencaoColetiva entity = ConvencaoColetiva.findById(id);
+        ArquivoConvencaoColetiva arquivo = models.ArquivoConvencaoColetiva.findById(entity.id);
+        arquivo.delete();
+        entity.delete();
+        index();
+    }
+    
+    public static void save(@Valid ConvencaoColetiva entity) {
+        if (validation.hasErrors()) {
+            flash.error(Messages.get("scaffold.validation"));
+            render("@create", entity);
+        }
+        
+        ArquivoConvencaoColetiva arquivo = new ArquivoConvencaoColetiva();
+        arquivo.conteudo = entity.arquivo;
+        arquivo.nome = entity.nome.lastIndexOf("\\") != 0? entity.nome.substring(entity.nome.lastIndexOf("\\")+1):"";
+        arquivo.mimeType = MimeTypes.getContentType(entity.arquivo.getFile().getName());
+        
+        arquivo.save();
+        
+        entity.save();
+        flash.success(Messages.get("scaffold.created", "ConvencaoColetiva"));
+        index();
+    }
+
+    public static void update(@Valid ConvencaoColetiva entity) {
+        if (validation.hasErrors()) {
+            flash.error(Messages.get("scaffold.validation"));
+            render("@edit", entity);
+        }
+        
+        	ArquivoConvencaoColetiva arquivo = models.ArquivoConvencaoColetiva.findById(entity.id);
+        	arquivo.conteudo = entity.arquivo;
+            arquivo.nome = entity.nome.lastIndexOf("\\") != 0? entity.nome.substring(entity.nome.lastIndexOf("\\")+1):"";
+            arquivo.mimeType = MimeTypes.getContentType(entity.arquivo.getFile().getName());	
+            arquivo.save();
+            entity = entity.merge();
+             
+        entity.save();
+        flash.success(Messages.get("scaffold.updated", "ConvencaoColetiva"));
+        index();
+    }
+}

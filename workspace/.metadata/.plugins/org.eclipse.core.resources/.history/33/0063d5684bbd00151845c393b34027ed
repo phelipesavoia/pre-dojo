@@ -1,0 +1,30 @@
+ <div class="row">
+ <div class="row">
+  <div class="label">Nome</div>
+  <div class="field">
+      <input type="text" name="entity.nome" value="${entity?.nome}"/>
+  </div>
+  <span class="error">${errors.forKey('entity.nome')}</span>
+</div>
+ <div class="row">
+  <div class="label">Mime Type</div>
+  <div class="field">
+      <input type="text" name="entity.mimeType" value="${entity?.mimeType}"/>
+  </div>
+  <span class="error">${errors.forKey('entity.mimeType')}</span>
+</div>
+ <div class="row">
+  <div class="label">Conteudo</div>
+  <div class="field">
+      <input type="text" name="entity.conteudo" value="${entity?.conteudo}"/>
+  </div>
+  <span class="error">${errors.forKey('entity.conteudo')}</span>
+</div>
+ <div class="row">
+  <div class="label"></div>
+  <div class="field">
+      <input type="hidden" name="entity.id" value="${entity?.id}"/>
+  </div>
+  <span class="error">${errors.forKey('entity.id')}</span>
+</div>
+

@@ -1,0 +1,7 @@
+package to.rounddetails;
+
+public class RoundDetailsTO {
+
+	public RoundTO round;
+	
+}

@@ -1,0 +1,14 @@
+package helpers;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+
+public class ArquiveImportHelper {
+
+	public static String TratarLinhaImportacao(InputStream inputStream){
+		
+		BufferedReader buffer = new BufferedReader(new InputStreamReader(inputStream));
+		
+		return null;
+	}
+}

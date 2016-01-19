@@ -1,0 +1,8 @@
+package to.rounddetails;
+
+public class AssasinsNotDieQtdTO {
+
+	public String user;
+	public int quantity;
+	
+}

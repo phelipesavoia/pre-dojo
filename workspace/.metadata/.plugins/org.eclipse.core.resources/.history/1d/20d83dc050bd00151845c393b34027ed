@@ -1,0 +1,46 @@
+#{extends 'main.html' /}
+
+	<section id="container" class="container_12">
+								
+				<!-- ======= .grid_6 - block begin ======= -->
+				<section class="grid_3">
+									<div class="grid-12-12">
+										<div id="menu">
+											<div class="box">
+												<div class="title"><div class="layout">Relatorios</div></div>						
+												<div class="inside">
+														<ul style="margin-bottom:0px">
+															<li><a href="@{Relatorios.index}">Relatorios</a></li>
+														</ul>
+												</div>
+											</div>
+												<div class="box">
+													<div class="title"><div class="layout">Cadastros</div></div>						
+													<div class="inside">
+														<ul style="margin-bottom:0px">
+															<li><a href="@{ArquivoImportacaos.index}">Arquivos de Importação</a></li>
+														</ul>		
+													</div>
+												</div>
+										</div>
+									</div>
+				</section>
+				<!-- ======= .grid_6 - block end ======= -->
+								
+				<!-- ======= .grid_6 - block begin ======= -->
+				<section class="grid_9">
+						<section id="main">
+							#{doLayout /}
+						</section>
+				</section>
+				<!-- ======= .grid_6 - block end ======= -->
+				
+				<div class="clear"></div>
+				
+			</section><!-- End of #container -->
+
+		</section><!-- End of #layout -->
+		<div class="clear"></div>
+		<section id="footer_bar">
+			<div class="copyr">Desenvolvido por Phelipe Savoia</div>
+		</section>	

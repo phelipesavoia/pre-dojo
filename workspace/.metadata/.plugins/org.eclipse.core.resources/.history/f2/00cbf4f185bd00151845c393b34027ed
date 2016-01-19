@@ -1,0 +1,10 @@
+package to.rounddetails;
+
+import to.RoundTO;
+
+public class RoundDetailsTO {
+
+	public RoundTO round;
+	public RankingTO ranking;
+	
+}

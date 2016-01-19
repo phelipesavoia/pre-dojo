@@ -1,0 +1,47 @@
+#{extends 'layouts/relatorios.html' /}
+<div class="box">
+	<div class="title">
+		<div class="layout">Rounds <span style="float:right"><a class="button green small" href="@{Usuarios.create}">Novo</a></span></div> 
+	</div>
+	<div class="inside">
+
+		<table cellpadding="0" cellspacing="0" border="0" class="display"
+			id="datatable_1">
+			<thead>
+				<tr>
+					<th>Identifier Round</th>
+					<th>Data inicial</th>
+					<th>Data final</th>
+					<th>
+						<!-- actions -->
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				#{list items:entities, as:'entity'}
+				<tr class="odd gradeA">
+					<td>${entity.identifier}</td>
+					<td>${entity.dataInicial}</td>
+					<td>${entity.dataFinal}</td>
+					<td>
+						<a class="icon16_sprite i_zoom" aria-describedby="ui-tooltip-232" href="@{Rounds.show(entity.identifier)}"></a>&nbsp;
+					</td>
+				</tr>
+				#{/list}
+			</tbody>
+			<tfoot>
+				<tr>
+					<th>Identifier Round</th>
+					<th>Data inicial</th>
+					<th>Data final</th>
+					<th>
+						<!-- actions -->
+					</th>
+				</tr>
+			</tfoot>
+		</table>
+		<div class="clear"></div>
+
+	</div>
+</div>
+

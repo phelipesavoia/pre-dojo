@@ -1,0 +1,30 @@
+#{extends 'main.html' /}
+<h2>Arquivos de Importacoes</h2>
+<table class="entity ArquivoImportacao">
+	<thead>
+		<tr>
+			<th><!-- actions --></th>
+				<th>Nome</th>
+				<th>Mime Type</th>
+				<th>Conteudo</th>
+				<th>Id</th>
+		</tr>
+	</thead>
+	<tbody>
+	#{list items:entities, as:'entity'}
+		<tr>
+			<td>
+				<a href="@{ArquivoImportacaos.show(entity.id)}">Show</a>&nbsp;
+				<a href="@{ArquivoImportacaos.edit(entity.id)}">Edit</a>&nbsp;
+				<a href="@{ArquivoImportacaos.delete(entity.id)}" onclick="if (!confirm('Are you sure you want to delete this record?')) return false;">Delete</a>
+			</td>
+					<td>${entity.nome}</td>
+					<td>${entity.mimeType}</td>
+					<td>${entity.conteudo}</td>
+					<td>${entity.id}</td>
+		</tr>
+	#{/list}
+	</tbody>
+</table>
+<a href="@{ArquivoImportacaos.create}">Create</a>
+

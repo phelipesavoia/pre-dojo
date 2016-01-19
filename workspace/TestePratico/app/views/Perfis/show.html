@@ -1,0 +1,68 @@
+#{extends 'layouts/ti.html' /}
+<!-- ======= .grid_12 - block begin ======= -->
+<section class="grid_12">
+<div class="box">
+	<div class="title">
+		<span class="icon16_sprite i_3d"></span>Detalhes do Perfil
+	</div>
+
+	<div class="inside">
+
+	<!-- ====================== -->
+
+<div class="grid-3-12">
+	<label>Nome 
+	</label>
+</div>
+<div class="grid-9-12">
+	${entity.nome}
+</div>
+<div class="clear"></div>
+<hr />
+
+<!-- ====================== -->
+
+<div class="grid-3-12">
+	<label>Controles <em class="formee-req">*</em>
+	</label>
+</div>
+<div class="grid-9-12">
+  		<table border="1" width="100%">
+			<tr>
+  				<td rowspan="2">M&oacute;dulo</td>
+  				<td rowspan="2">Controle</td>
+  				<td colspan="5">A&ccedil;&otilde;es</td>
+  			</tr>
+  			<tr>
+  				<td>Listar</td>
+  				<td>Exibir</td>
+  				<td>Criar</td>
+  				<td>Editar</td>
+  				<td>Excluir</td>
+  			</tr>
+		#{list items:entity.controles, as:'controle'}
+			<tr>
+				<td>${controle.controle.modulo.nome}</td>
+				<td>${controle.controle.nome}</td> 
+				<td>%{if (controle.listar){}%S%{}else{}%N%{}}%</td>
+				<td>%{if (controle.exibir){}%S%{}else{}%N%{}}%</td>
+				<td>%{if (controle.criar){}%S%{}else{}%N%{}}%</td>
+				<td>%{if (controle.editar){}%S%{}else{}%N%{}}%</td>
+				<td>%{if (controle.excluir){}%S%{}else{}%N%{}}%</td>
+			</tr>
+     	#{/list}
+     	</table>
+	</div>
+<div class="clear"></div>
+<hr />
+
+<!-- ====================== -->
+
+<a class="button red"  href="@{Perfis.index}">Voltar</a>
+
+	</div>
+</div>
+</section>
+<div class="clear"></div>
+<!-- ======= .grid_12 - block end ======= -->
+

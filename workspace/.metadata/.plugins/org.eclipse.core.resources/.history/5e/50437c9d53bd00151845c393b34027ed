@@ -1,0 +1,32 @@
+package models;
+
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import play.data.validation.Match;
+import play.data.validation.Required;
+import play.db.jpa.Blob;
+import play.db.jpa.Model;
+
+@Entity
+@Table(name="convencoes_coletivas")
+public class ArquivoLog extends Model {
+	
+	@Required
+	@Match(value="[0-9]{4}", message="validation.ano")
+	public String ano;
+	
+	@Required
+	@ManyToOne
+	public Categoria categoria;
+	
+	@Transient
+	public String nome;
+	
+	@Required
+	@Transient
+	public Blob arquivo;
+	
+}

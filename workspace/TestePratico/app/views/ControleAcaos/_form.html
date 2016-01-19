@@ -1,0 +1,121 @@
+ <div class="row">
+  <div class="label">Perfil</div>
+  <div class="field">
+        <select name="entity.perfil.id">
+                      <option value="">(None)</option>              
+        %{ models.Perfil.all().fetch().sort{ it.toString() }.each() { }%
+          %{
+            selected = false;
+            if (entity?.perfil?.id == it.id) {
+              selected = true
+            }
+          }%
+          <option value="${it?.id}" ${selected ? 'selected'.raw() : ''}>${it}</option>
+        %{ } }%
+        </select>
+  </div>
+  <span class="error">${errors.forKey('entity.perfil')}</span>
+</div>
+ <div class="row">
+  <div class="label">Controle</div>
+  <div class="field">
+      <select name="entity.controle">
+          <option value="CONTRIBUINTES" 
+            ${(entity?.controle?.name() == 'CONTRIBUINTES') ? 'selected':''}>CONTRIBUINTES</option>
+          <option value="CORRECAO_CONTRIBUICAO" 
+            ${(entity?.controle?.name() == 'CORRECAO_CONTRIBUICAO') ? 'selected':''}>CORRECAO_CONTRIBUICAO</option>
+          <option value="IMPORTACAO_ARQUIVO" 
+            ${(entity?.controle?.name() == 'IMPORTACAO_ARQUIVO') ? 'selected':''}>IMPORTACAO_ARQUIVO</option>
+          <option value="LANCAMENTO_ESPELHO" 
+            ${(entity?.controle?.name() == 'LANCAMENTO_ESPELHO') ? 'selected':''}>LANCAMENTO_ESPELHO</option>
+          <option value="CARTEIRA_COBRANCA" 
+            ${(entity?.controle?.name() == 'CARTEIRA_COBRANCA') ? 'selected':''}>CARTEIRA_COBRANCA</option>
+          <option value="CATEGORIA" 
+            ${(entity?.controle?.name() == 'CATEGORIA') ? 'selected':''}>CATEGORIA</option>
+          <option value="CONVENCAO_COLETIVA" 
+            ${(entity?.controle?.name() == 'CONVENCAO_COLETIVA') ? 'selected':''}>CONVENCAO_COLETIVA</option>
+          <option value="ESCRITORIO_CONTABIL" 
+            ${(entity?.controle?.name() == 'ESCRITORIO_CONTABIL') ? 'selected':''}>ESCRITORIO_CONTABIL</option>
+          <option value="ENVIO_BOLETO" 
+            ${(entity?.controle?.name() == 'ENVIO_BOLETO') ? 'selected':''}>ENVIO_BOLETO</option>
+          <option value="GRUPO_HISTORICO" 
+            ${(entity?.controle?.name() == 'GRUPO_HISTORICO') ? 'selected':''}>GRUPO_HISTORICO</option>
+          <option value="PARAMETROS" 
+            ${(entity?.controle?.name() == 'PARAMETROS') ? 'selected':''}>PARAMETROS</option>
+          <option value="SITUACOES_CONTRIBUINTE" 
+            ${(entity?.controle?.name() == 'SITUACOES_CONTRIBUINTE') ? 'selected':''}>SITUACOES_CONTRIBUINTE</option>
+          <option value="BAIXA_DEVOLVIDOS" 
+            ${(entity?.controle?.name() == 'BAIXA_DEVOLVIDOS') ? 'selected':''}>BAIXA_DEVOLVIDOS</option>
+          <option value="FECAHMENTO_MENSAL" 
+            ${(entity?.controle?.name() == 'FECAHMENTO_MENSAL') ? 'selected':''}>FECAHMENTO_MENSAL</option>
+          <option value="APARTAMENTOS" 
+            ${(entity?.controle?.name() == 'APARTAMENTOS') ? 'selected':''}>APARTAMENTOS</option>
+          <option value="EQUIPES" 
+            ${(entity?.controle?.name() == 'EQUIPES') ? 'selected':''}>EQUIPES</option>
+          <option value="EVENTOS" 
+            ${(entity?.controle?.name() == 'EVENTOS') ? 'selected':''}>EVENTOS</option>
+          <option value="RESERVAS" 
+            ${(entity?.controle?.name() == 'RESERVAS') ? 'selected':''}>RESERVAS</option>
+          <option value="VEICULOS" 
+            ${(entity?.controle?.name() == 'VEICULOS') ? 'selected':''}>VEICULOS</option>
+          <option value="PERFIS" 
+            ${(entity?.controle?.name() == 'PERFIS') ? 'selected':''}>PERFIS</option>
+          <option value="USUARIOS" 
+            ${(entity?.controle?.name() == 'USUARIOS') ? 'selected':''}>USUARIOS</option>
+      </select>
+  </div>
+  <span class="error">${errors.forKey('entity.controle')}</span>
+</div>
+ <div class="row">
+  <div class="label">Listar</div>
+  <div class="field">
+      <input type="checkbox" name="entity.listar"
+        ${entity?.listar ? 'checked':''}
+      />
+  </div>
+  <span class="error">${errors.forKey('entity.listar')}</span>
+</div>
+ <div class="row">
+  <div class="label">Exibir</div>
+  <div class="field">
+      <input type="checkbox" name="entity.exibir"
+        ${entity?.exibir ? 'checked':''}
+      />
+  </div>
+  <span class="error">${errors.forKey('entity.exibir')}</span>
+</div>
+ <div class="row">
+  <div class="label">Criar</div>
+  <div class="field">
+      <input type="checkbox" name="entity.criar"
+        ${entity?.criar ? 'checked':''}
+      />
+  </div>
+  <span class="error">${errors.forKey('entity.criar')}</span>
+</div>
+ <div class="row">
+  <div class="label">Editar</div>
+  <div class="field">
+      <input type="checkbox" name="entity.editar"
+        ${entity?.editar ? 'checked':''}
+      />
+  </div>
+  <span class="error">${errors.forKey('entity.editar')}</span>
+</div>
+ <div class="row">
+  <div class="label">Excluir</div>
+  <div class="field">
+      <input type="checkbox" name="entity.excluir"
+        ${entity?.excluir ? 'checked':''}
+      />
+  </div>
+  <span class="error">${errors.forKey('entity.excluir')}</span>
+</div>
+ <div class="row">
+  <div class="label"></div>
+  <div class="field">
+      <input type="hidden" name="entity.id" value="${entity?.id}"/>
+  </div>
+  <span class="error">${errors.forKey('entity.id')}</span>
+</div>
+

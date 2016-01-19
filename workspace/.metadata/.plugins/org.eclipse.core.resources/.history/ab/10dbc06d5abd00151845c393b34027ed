@@ -1,0 +1,51 @@
+#{extends 'layouts/relatorios.html' /}
+<!-- ======= .grid_12 - block begin ======= -->
+<section class="grid_12">
+<div class="box">
+	<div class="title">
+		<span class="icon16_sprite i_3d"></span>Detalhes de Arquivos de logs
+	</div>
+
+	<div class="inside">
+<div class="entity">
+
+	<!-- ====================== -->
+
+<div class="grid-3-12">
+	<label>Data 
+	</label>
+</div>
+<div class="grid-9-12">
+	${entity.data}
+</div>
+<div class="clear"></div>
+<hr />
+
+<!-- ====================== -->
+
+
+
+	<!-- ====================== -->
+
+<div class="grid-3-12">
+	<label>Arquivo 
+	</label>
+</div>
+<div class="grid-9-12">
+	<a href="@{ArquivoDownload.download(entity.id)}">
+            ${models.ArquivoImportacao.findById(entity.id).nome}
+            </a>
+</div>
+<div class="clear"></div>
+<hr />
+
+<!-- ====================== -->
+
+</div>
+<a class="button red"  href="@{ArquivoLogs.index}">Voltar</a>
+
+	</div>
+</div>
+</section>
+<div class="clear"></div>
+<!-- ======= .grid_12 - block end ======= -->

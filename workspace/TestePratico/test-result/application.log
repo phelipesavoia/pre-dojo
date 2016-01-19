@@ -1,0 +1,38 @@
+17 Jan 2016 16:09:22,807 INFO  ~ Starting /home/phelipe/Área de Trabalho/teste_pratico/workspace/TestePratico
+17 Jan 2016 16:09:22,820 INFO  ~ Module scaffold is available (/home/phelipe/Área de Trabalho/teste_pratico/workspace/TestePratico/modules/scaffold-0.1)
+17 Jan 2016 16:09:22,821 INFO  ~ Module secure is available (/home/phelipe/Área de Trabalho/teste_pratico/play-1.2.5/modules/secure)
+17 Jan 2016 16:09:23,786 WARN  ~ You're running Play! in DEV mode
+17 Jan 2016 16:09:23,887 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+17 Jan 2016 16:09:28,175 WARN  ~ Ignoring id:{id} (static params must be specified as key:'value',...)
+17 Jan 2016 16:09:28,176 WARN  ~ Ignoring id:{id} (static params must be specified as key:'value',...)
+17 Jan 2016 16:09:28,177 WARN  ~ Ignoring page:{page} (static params must be specified as key:'value',...)
+17 Jan 2016 16:09:31,692 INFO  ~ Connected to jdbc:mysql://localhost/TestePratico?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+17 Jan 2016 16:09:34,997 ERROR ~ 
+
+@6onikffh7
+Internal Server Error (500) for request GET /
+
+JPA error
+A JPA error occurred (Unable to build EntityManagerFactory): No identifier specified for entity: play.modules.scaffold.form.FormElementTest$EmbeddableExample
+
+play.exceptions.JPAException: Unable to build EntityManagerFactory
+	at play.db.jpa.JPAPlugin.onApplicationStart(JPAPlugin.java:269)
+	at play.plugins.PluginCollection.onApplicationStart(PluginCollection.java:525)
+	at play.Play.start(Play.java:526)
+	at play.Play.detectChanges(Play.java:642)
+	at play.Invoker$Invocation.init(Invoker.java:198)
+	at Invocation.HTTP Request(Play!)
+Caused by: org.hibernate.AnnotationException: No identifier specified for entity: play.modules.scaffold.form.FormElementTest$EmbeddableExample
+	at org.hibernate.cfg.InheritanceState.determineDefaultAccessType(InheritanceState.java:268)
+	at org.hibernate.cfg.InheritanceState.getElementsToProcess(InheritanceState.java:223)
+	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:686)
+	at org.hibernate.cfg.Configuration$MetadataSourceQueue.processAnnotatedClassesQueue(Configuration.java:4035)
+	at org.hibernate.cfg.Configuration$MetadataSourceQueue.processMetadata(Configuration.java:3989)
+	at org.hibernate.cfg.Configuration.secondPassCompile(Configuration.java:1398)
+	at org.hibernate.cfg.Configuration.buildMappings(Configuration.java:1375)
+	at org.hibernate.ejb.Ejb3Configuration.buildMappings(Ejb3Configuration.java:1519)
+	at org.hibernate.ejb.EventListenerConfigurator.configure(EventListenerConfigurator.java:193)
+	at org.hibernate.ejb.Ejb3Configuration.configure(Ejb3Configuration.java:1100)
+	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:904)
+	at play.db.jpa.JPAPlugin.onApplicationStart(JPAPlugin.java:267)
+	... 5 more

@@ -1,0 +1,18 @@
+#{extends 'login.html' /}
+<div class="entity">
+<span class="error">${flash?.error}</span>
+#{form @Login.login(), id:'authForm'}
+<div class="row">
+  <div class="label">Login</div>
+  <div class="field">
+      <input type="text" name="entity.login" value="${entity?.login}"/>
+  </div>
+  <span class="error">${errors.forKey('entity.login')}</span>
+  <div class="field">
+      <input type="password" name="entity.senha" value="${entity?.senha}"/>
+  </div>
+  <span class="error">${errors.forKey('entity.senha')}</span>
+</div>
+<input type="submit" name="submit" value="OK" />
+#{/form}
+</div>

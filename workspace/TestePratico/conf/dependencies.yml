@@ -1,0 +1,14 @@
+# Application dependencies
+require:
+    - play
+    - play -> scaffold 0.1
+    - play -> secure
+    - net.sf.jasperreports -> jasperreports 4.6.0:
+        transitive: false
+    - commons-digester -> commons-digester 1.7:
+        transitive: false
+    - com.lowagie -> itext 2.1.7:
+        transitive: false
+    - net.sourceforge.jexcelapi -> jxl 2.6.10:
+        transitive: false
+    

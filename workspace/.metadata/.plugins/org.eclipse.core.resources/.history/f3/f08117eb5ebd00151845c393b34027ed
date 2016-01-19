@@ -1,0 +1,13 @@
+package helpers;
+
+import java.io.FileInputStream;
+
+import com.lowagie.text.pdf.codec.Base64.InputStream;
+
+public class ArquiveImportHelper {
+
+	public static String TratarLinhaImportacao(InputStream file){
+		
+		return null;
+	}
+}

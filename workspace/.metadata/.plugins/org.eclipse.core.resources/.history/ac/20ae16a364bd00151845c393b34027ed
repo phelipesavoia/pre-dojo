@@ -1,0 +1,20 @@
+package models;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import play.data.validation.Required;
+
+@Entity
+@Table(name="match")
+public class Match {
+
+	@Required 
+	public Date data;
+	
+	public long id;
+	
+	public Boolean status;
+}

@@ -1,0 +1,7 @@
+secure.title=
+secure.username=Usuário:
+secure.password=Senha:
+secure.remember=Lembrar-me
+secure.signin=Acessar
+secure.error=Usuário ou senha incorretos.
+secure.logout=Você foi desconectado.

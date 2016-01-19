@@ -1,0 +1,28 @@
+package models;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import play.data.validation.Required;
+import play.db.jpa.Model;
+
+@Entity
+@Table(name="match")
+public class Match extends Model {
+
+	@Required 
+	public Date data;
+	
+	public long identifier;
+	
+	public Boolean status;
+
+	public Match(Date data, long identifier, Boolean status) {
+		super();
+		this.data = data;
+		this.identifier = identifier;
+		this.status = status;
+	}
+}

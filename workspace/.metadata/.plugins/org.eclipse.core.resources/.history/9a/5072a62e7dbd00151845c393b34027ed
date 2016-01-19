@@ -1,0 +1,10 @@
+package to;
+
+public class RankingTO {
+	
+	public String user;
+	public int quantityKill;
+	public int quantityDie;
+	
+	public GunPreferedTO gunPreferedTO;
+}

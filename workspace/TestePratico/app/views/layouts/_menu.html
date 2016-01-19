@@ -1,0 +1,45 @@
+		<section id="layout">
+		
+			<div class="logo_profile container_12">
+				<div class="grid_6 logo_img">
+					<img width="90" height="60" src="@{'/public/images/logonv.png'}" alt="Logo" />
+				</div>
+				<div class="grid_6 profile_meta">
+					<div class="user_meta">
+						<div>
+							<img src="@{'public/images/camera.png'}" alt="" />
+						</div>
+						<div class="name">
+							Bem vindo  ${session.get('username')}<br />
+							<a href="/" class="submeta">Home</a>
+							<a href="@{Secure.logout()}" class="submeta">Sair</a>
+						</div>
+					</div>
+				</div>
+			
+				<div class="clear"></div>
+			</div>
+	
+			<section id="top">
+					
+				<section id="top_bar">						
+				</section>
+				
+				<section class="top_in">	
+					<section id="second_top_bar">
+						<div id="quick_task" class="jThumbnailScroller">
+							<div class="jTscrollerContainer">
+							<div class="clear"></div>
+								<ul class="jTscroller">
+									<li><a href="@{ModuloRelatorios.index}"><span class="icon4"></span>Relatorios</a></li>
+									<li><a href="@{ModuloTI.index}"><span class="icon19"></span>TI</a></li>
+								</ul>
+								<div class="clear"></div>
+							</div>										
+							<div class="clear"></div>
+						</div>
+						<div class="clear"></div>						
+					</section><!-- End of #second_top_bar -->
+				</section><!-- End of .top_in -->
+				
+			</section><!-- End of #top -->

@@ -1,0 +1,23 @@
+#{extends 'layouts/ti.html' /}
+<!-- ======= .grid_12 - block begin ======= -->
+<section class="grid_12">
+<div class="box">
+	<div class="title">
+		<span class="icon16_sprite i_3d"></span>Edi&ccedil;ao de Perfis
+	</div>
+
+	<div class="inside">
+		<!-- formee-->
+		#{form @Perfis.update(), id:'createForm', class:'formee'} 
+			#{include 'Perfis/_form.html' /} 
+			<input type="submit" name="submit" value="Salvar" /> 
+			<a href="@{Perfis.index}" class="button red" >Voltar</a>
+		#{/form}
+		<!-- formee-->
+	</div>
+</div>
+</section>
+<div class="clear"></div>
+<!-- ======= .grid_12 - block end ======= -->
+
+

@@ -1,0 +1,84 @@
+package models;
+
+import helpers.EncryptHelper;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.ManyToOne;
+import javax.persistence.NoResultException;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.apache.commons.lang.StringUtils;
+
+import play.data.validation.Password;
+import play.data.validation.Required;
+import play.data.validation.Unique;
+import play.db.jpa.Model;
+import enums.UsuarioStatus;
+
+@Entity
+@Table(name="usuarios")
+public class Usuario extends Model {
+	
+	@Required
+	public String nome;
+	
+	@Required
+	@Unique
+	public String login;
+	
+	@Required
+	@Password
+	@Transient
+	public String senha;
+	
+	private byte[] hash_password;
+	
+	@Enumerated(EnumType.STRING)
+	public UsuarioStatus status;
+	
+	@ManyToOne
+	@Required
+	public Perfil perfil;
+	
+	@Override
+	public void _save(){
+		if(!StringUtils.isEmpty(this.senha))
+			this.hash_password = EncryptHelper.encrypt(senha);		
+		super._save();
+	}
+	
+	public boolean checkPassword(String senha){
+		byte[] temp = EncryptHelper.encrypt(senha);
+		if(temp.length != this.hash_password.length)
+			return false;
+		for (int i = 0; i < this.hash_password.length; i++){
+			if (this.hash_password[i] != temp[i])
+				return false;
+		}
+		return true;
+	}
+	
+	public static List<Usuario> findByPerfil(Perfil perfil){
+		return em().createQuery("FROM Usuario u WHERE u.perfil = :perfil")
+				.setParameter("perfil", perfil)
+				.getResultList();
+	}
+	
+	public static Usuario getByLogin(String login){
+		try{
+			return (Usuario) em().createQuery("FROM Usuario u WHERE u.login = :login")
+				.setParameter("login", login)
+				.getSingleResult();
+		}catch(NoResultException e){
+			return null;
+		}
+	}
+	
+	@Transient
+	public List<String>permissoes;
+}

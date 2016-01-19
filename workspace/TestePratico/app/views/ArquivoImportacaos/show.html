@@ -1,0 +1,38 @@
+#{extends 'main.html' /}
+<h2>View Arquivo de importacoes</h2>
+<div class="entity">
+	<div class="row">
+		<span class="elem">
+			nome:
+		</span>
+		<span class="value">
+      ${entity.nome}
+		</span>
+	</div>
+	<div class="row">
+		<span class="elem">
+			mimeType:
+		</span>
+		<span class="value">
+      ${entity.mimeType}
+		</span>
+	</div>
+	<div class="row">
+		<span class="elem">
+			conteudo:
+		</span>
+		<span class="value">
+      ${entity.conteudo}
+		</span>
+	</div>
+	<div class="row">
+		<span class="elem">
+			id:
+		</span>
+		<span class="value">
+      ${entity.id}
+		</span>
+	</div>
+</div>
+<a href="@{ArquivoImportacaos.index}">Back</a>
+

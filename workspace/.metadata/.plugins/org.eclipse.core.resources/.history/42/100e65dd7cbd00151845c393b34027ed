@@ -1,0 +1,9 @@
+package to;
+
+import to.RoundTO;
+
+public class RoundDetailsTO {
+
+	public RoundTO round;
+	
+}

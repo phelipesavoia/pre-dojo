@@ -1,0 +1,106 @@
+ <!-- ====================== -->
+
+<div class="grid-3-12">
+	<label>Nome <em class="formee-req">*</em>
+	</label>
+</div>
+<div class="grid-9-12">
+	<input type="text" name="entity.nome" value="${entity?.nome}" />
+	<span class="error">${errors.forKey('entity.nome')}</span>
+</div>
+<div class="clear"></div>
+<hr />
+
+<!-- ====================== -->
+
+<!-- ====================== -->
+
+<div class="grid-3-12">
+	<label>Login <em class="formee-req">*</em>
+	</label>
+</div>
+<div class="grid-9-12">
+	<input type="text" name="entity.login" value="${entity?.login}"/>
+	<span class="error">${errors.forKey('entity.login')}</span>
+</div>
+<div class="clear"></div>
+<hr />
+
+<!-- ====================== -->
+
+<!-- ====================== -->
+
+<div class="grid-3-12">
+	<label>Senha <em class="formee-req">*</em>
+	</label>
+</div>
+<div class="grid-9-12">
+	<input type="password" name="entity.senha" value="${entity?.senha}"/>
+	<span class="error">${errors.forKey('entity.senha')}</span>
+</div>
+<div class="clear"></div>
+<hr />
+
+<!-- ====================== -->
+
+
+<!-- ====================== -->
+
+<div class="grid-3-12">
+<label>Status <em class="formee-req">*</em></label>
+</div>
+<div class="grid-9-12">
+	<select name="entity.status" data-placeholder="Selecione um status" class="chzn-select" style="max-width: 350px;" tabindex="1">
+			<option value="">Selecione</option> 
+			%{ enums.UsuarioStatus.values().sort{ it.key }.each() { }%
+          %{
+            selected = false;
+            if (entity?.status == it) {
+              selected = true
+            }
+          }%
+          <option value="${it}" ${selected ? 'selected'.raw() : ''}>${it.key}</option>
+        %{ } }%
+	</select>
+	<div class="clear"></div>
+	<span class="error">${errors.forKey('entity.status')}</span>
+</div>
+<div class="clear"></div>
+<hr />
+
+<!-- ====================== -->
+
+<!-- ====================== -->
+
+<div class="grid-3-12">
+<label>Perfil <em class="formee-req">*</em></label>
+</div>
+<div class="grid-9-12">
+	<select name="entity.perfil.id" data-placeholder="Selecione um perfil" class="chzn-select" style="max-width: 350px;" tabindex="1">
+			<option value="">Selecione</option> 
+	        %{ models.Perfil.all().fetch().sort{ it.nome }.each() { }%
+	          %{
+	            selected = false;
+	            if (entity?.perfil?.id == it.id) {
+	              selected = true
+	            }
+	          }%
+	          <option value="${it?.id}" ${selected ? 'selected'.raw() : ''}>${it.nome}</option>
+	        %{ } }%
+	</select>
+	<div class="clear"></div>
+	<span class="error">${errors.forKey('entity.perfil')}</span>
+</div>
+<div class="clear"></div>
+<hr />
+
+<!-- ====================== -->
+
+ <div class="row">
+  <div class="label"></div>
+  <div class="field">
+      <input type="hidden" name="entity.id" value="${entity?.id}"/>
+  </div>
+  <span class="error">${errors.forKey('entity.id')}</span>
+</div>
+

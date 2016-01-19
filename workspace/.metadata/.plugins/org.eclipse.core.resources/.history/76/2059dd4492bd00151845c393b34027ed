@@ -1,0 +1,115 @@
+#{extends 'layouts/relatorios.html' /}
+#{list items:details.rankings, as:'entity'}
+				<tr class="odd gradeA">
+					<td>${entity.user}</td>
+					<td>${entity.quantityKill}</td>
+					<td>${entity.quantityDie}</td>
+					<td>#{if entity.quantityDie == 0}
+						    (award)
+						#{/if}
+				    </td>
+				</tr>
+				#{/list}
+
+<div class="box">
+	<div class="title">
+		<div class="layout">Detalhe do Round - ranking</div> 
+	</div>
+	<div class="inside">
+
+		<table cellpadding="0" cellspacing="0" border="0" class="display"
+			id="datatable_1">
+			<thead>
+				<tr>
+					<th>Usuário</th>
+					<th>Quantidade de assasinados</th>
+					<th>Quantidade de mortes</th>
+					<th>Sem mortes</th>
+				</tr>
+			</thead>
+			<tbody>
+				#{list items:details.rankings, as:'entity'}
+				<tr class="odd gradeA">
+					<td>${entity.user}</td>
+					<td>${entity.quantityKill}</td>
+					<td>${entity.quantityDie}</td>
+					<td>#{if entity.quantityDie == 0}
+						    (award)
+						#{/if}
+				    </td>
+				</tr>
+				#{/list}
+			</tbody>
+			<tfoot>
+				<tr>
+					<th>Usuário</th>
+					<th>Quantidade de assasinados</th>
+					<th>Quantidade de mortes</th>
+					<th>Sem mortes</th>
+				</tr>
+			</tfoot>
+		</table>
+		<div class="clear"></div>
+
+	</div>
+</div>
+
+<!-- ======= .grid_12 - block begin ======= -->
+<section class="grid_12">
+<div class="box">
+	<div class="title">
+		<span class="icon16_sprite i_3d"></span>Arma preferida do vencedor
+	</div>
+
+	<div class="inside">
+<div class="entity">
+
+
+<div class="grid-3-12">
+	<label>Vencedor 
+	</label>
+</div>
+<div class="grid-9-12">
+	${details.gun.user}
+</div>
+<div class="clear"></div>
+<hr />
+
+<!-- ====================== -->
+
+<div class="grid-3-12">
+	<label>Arma 
+	</label>
+</div>
+<div class="grid-9-12">
+	${details.gun.gun}
+</div>
+<div class="clear"></div>
+<hr />
+
+<!-- ====================== -->
+
+<!-- ====================== -->
+
+<div class="grid-3-12">
+	<label>Quantidade 
+	</label>
+</div>
+<div class="grid-9-12">
+	${details.gun.qtd}
+</div>
+<div class="clear"></div>
+<hr />
+
+<!-- ====================== -->
+
+
+</div>
+<a class="button red"  href="@{Rounds.index}">Voltar</a>
+
+	</div>
+</div>
+</section>
+<div class="clear"></div>
+<!-- ======= .grid_12 - block end ======= -->
+

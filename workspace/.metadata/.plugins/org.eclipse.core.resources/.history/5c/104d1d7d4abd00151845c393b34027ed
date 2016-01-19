@@ -1,0 +1,138 @@
+package controllers;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import models.RelatoriosAposentado;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import play.data.validation.Valid;
+import play.db.jpa.JPA;
+import play.mvc.Controller;
+import to.RelatoriosAposentadosVO;
+import enums.TipoRelatorioAposentados;
+
+public class RelatoriosAposentados extends Controller{
+	
+	public static void index(){
+		//RelatoriosAposentado entity = new RelatoriosAposentado();
+		render(null);
+	}
+	
+	/*public static void busca(@Valid RelatoriosAposentado entity){
+		
+		String nome = "";
+		List<Inscricao> inscricoes = new ArrayList<Inscricao>();
+				
+		if(entity.tipoRelatorioAposentados == TipoRelatorioAposentados.EN){
+			if(entity.onibus.id != null){
+			inscricoes = (List<Inscricao>)JPA.em().createQuery(
+					"Select e from Inscricao e where e.poltrona.onibus = :onibus ORDER BY e.poltrona.onibus.nome,e.poltrona.numPoltrona ASC")
+			.setParameter("onibus", entity.onibus)
+			.getResultList();
+			}else{
+				inscricoes = (List<Inscricao>)JPA.em().createQuery(
+				"Select e from Inscricao e where e.poltrona IS NULL ORDER BY e.socio.socio ASC").getResultList();
+			}
+			nome = "relatorio_empresa_de_onibus";
+		}else if(entity.tipoRelatorioAposentados == TipoRelatorioAposentados.CN){
+			inscricoes = (List<Inscricao>)JPA.em()
+			.createQuery(
+					"Select e from Inscricao e ORDER BY e.socio.socio")
+			.getResultList();
+			
+			nome = "relatorio_colonia";
+			
+		}else if(entity.tipoRelatorioAposentados == TipoRelatorioAposentados.ON){
+			if(entity.onibus.id != null){
+				inscricoes = (List<Inscricao>)JPA.em()
+				.createQuery(
+						"Select e from Inscricao e where e.poltrona.onibus = :onibus ORDER BY e.poltrona.onibus.nome,e.poltrona.numPoltrona ASC")
+				.setParameter("onibus", entity.onibus)
+				.getResultList();
+			}else{
+				inscricoes = (List<Inscricao>)JPA.em()
+				.createQuery(
+						"Select e from Inscricao e where e.poltrona IS NULL ORDER BY e.socio.socio ASC").getResultList();
+			}
+			nome = "relatorio_onibus";
+		}
+						
+			Collection<RelatoriosAposentadosVO> colecao = new ArrayList<RelatoriosAposentadosVO>();
+			Map<String, Object> pa = new HashMap<String, Object>();
+			
+			for(Inscricao inc : inscricoes){
+				RelatoriosAposentadosVO relatoriosAposentadosVO = new RelatoriosAposentadosVO();
+				relatoriosAposentadosVO.setApartamento(inc.apartamento.apartamento+"");
+				
+				if(inc.dependente.length() == 0){
+					relatoriosAposentadosVO.setNome(inc.socio.socio);
+					relatoriosAposentadosVO.setRg(inc.socio.rg);
+				}else{
+					relatoriosAposentadosVO.setNome(inc.dependente+"(D)");
+					if(inc.rgdependente.length() != 0){
+						relatoriosAposentadosVO.setRg(inc.rgdependente);
+					}else{
+						relatoriosAposentadosVO.setRg("");
+					}
+				}
+				
+				if(inc.socio.celular == null){
+					relatoriosAposentadosVO.setCelular("");
+				}else{
+					relatoriosAposentadosVO.setCelular(inc.socio.celular);
+				}
+				
+				if(inc.socio.residencial == null){
+					relatoriosAposentadosVO.setResidencial("");
+				}else{
+					relatoriosAposentadosVO.setResidencial(inc.socio.residencial);
+				}
+				
+				if(inc.poltrona == null){
+					if(entity.tipoRelatorioAposentados == TipoRelatorioAposentados.EN){
+						relatoriosAposentadosVO.setOnibus("Não irá de ônibus");
+					}else{
+						relatoriosAposentadosVO.setOnibus("NA ônibus");
+					}
+				}else{
+					relatoriosAposentadosVO.setOnibus(inc.poltrona.onibus.nome);
+				}
+				relatoriosAposentadosVO.setCamiseta(inc.camiseta.name());
+				relatoriosAposentadosVO.setMatricula(inc.socio.matricula+"");
+				if(inc.poltrona == null){
+					if(nome.trim().equals("relatorio_onibus".trim())){
+						relatoriosAposentadosVO.setPoltrona(inc.equipe.nome);
+					}else{
+						relatoriosAposentadosVO.setPoltrona("0");
+					}
+				}else{
+					relatoriosAposentadosVO.setPoltrona(inc.poltrona.numPoltrona+"");
+				}
+				
+				try{
+					if(inc.observacao.length() == 0){
+						relatoriosAposentadosVO.setObservacao("");
+					}else{
+						relatoriosAposentadosVO.setObservacao(inc.observacao);
+					}
+				}catch (Exception e) {
+					if(inc.observacao == null){
+						relatoriosAposentadosVO.setObservacao("");
+					}else{
+						relatoriosAposentadosVO.setObservacao(inc.observacao);
+					}
+				}
+				colecao.add(relatoriosAposentadosVO);
+			}
+						
+			JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(colecao);
+			
+			response.setContentTypeIfNotSet("application/pdf"); 		
+			renderBinary(helpers.BaseJasperReport.generateReportAp(nome, pa,dataSource),nome+".pdf");
+		
+	}	
+	*/
+}

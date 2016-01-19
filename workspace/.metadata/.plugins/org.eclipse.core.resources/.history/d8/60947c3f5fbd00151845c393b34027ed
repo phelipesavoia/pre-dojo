@@ -1,0 +1,11 @@
+package helpers;
+
+import java.io.InputStream;
+
+public class ArquiveImportHelper {
+
+	public static String TratarLinhaImportacao(InputStream inputStream){
+		
+		return null;
+	}
+}

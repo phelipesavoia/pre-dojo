@@ -1,0 +1,3 @@
+create database TestePratico;
+CREATE USER 'testuser'@'localhost' IDENTIFIED BY 'teste';
+grant all on TestePratico.* to 'testuser';

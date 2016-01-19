@@ -1,2 +1,20 @@
-Coloque aqui suas instruções ou comentários que ache útil/relevantes para possamos ler 
-quando estivermos avaliando a sua solução
+Configuração de banco de dados
+
+Ao baixar o projeto abra o mysql e execute o scrypt CreateUserDatabase.
+Em seguida execute o arquivo Dump.
+
+Configuração do Play Framework
+
+Abra a pasta workspace e o projeto TestePratico
+com o play framework configurado digite o comando:
+./play dependencies 
+
+Ao executar o comando o play framework irá instalar todos os plugins e dependencias que o projeto contém.
+
+Finalizando o download de todas as dependencias, digie o comando ./play run.
+
+O endereço para acessar o sistema é http://localhost:9000.
+Usuário de acesso: adm
+Senha de acesso: adm.
+
+
